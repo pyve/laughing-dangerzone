@@ -1,3 +1,8 @@
+*.db
+.DS_Store
+.coverage
+local_settings.py
+static/
 *.py[cod]
 
 # C extensions
@@ -22,7 +27,6 @@ lib64
 pip-log.txt
 
 # Unit test / coverage reports
-.coverage
 .tox
 nosetests.xml
 
