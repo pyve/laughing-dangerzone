@@ -1,1 +1,5 @@
 Mezzanine==1.2.4
+Gnotty==0.2.4
+mezzanine-careers==0.1
+mezzanine-polls==0.3.2
+django-compressor==1.3
