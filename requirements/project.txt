@@ -1,4 +1,5 @@
-Mezzanine==1.2.4
+Django==1.4.5
+Mezzanine==1.4.3
 Gnotty==0.2.4
 mezzanine-careers==0.1
 mezzanine-polls==0.3.2
