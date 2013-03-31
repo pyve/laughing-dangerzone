@@ -115,14 +115,14 @@ MANAGERS = ADMINS
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = None
+TIME_ZONE = "America/Caracas"
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "es"
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -235,12 +235,15 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
+FIXTURE_DIRS = (os.path.join(PROJECT_ROOT, "fixtures"), )
 
 ################
 # APPLICATIONS #
 ################
 
 INSTALLED_APPS = (
+    "gnotty",
+    "compressor",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -258,8 +261,10 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    #"mezzanine.accounts",
-    #"mezzanine.mobile",
+    "mezzanine.accounts",
+    "mezzanine.mobile",
+    "careers",
+    "mezzanine_polls"
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -342,6 +347,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     "ADMIN_PASS": "", # Live admin user password
 # }
 
+CAREERS_PER_PAGE = 10
 
 ##################
 # LOCAL SETTINGS #
@@ -351,10 +357,14 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 # ignored in your version control system allowing for settings to be
 # defined per machine.
 try:
-    from local_settings import *
+    from local_settings import *  # NOQA
 except ImportError:
     pass
 
+
+TEMPLATE_DEBUG = DEBUG
+GNOTTY_LOG_LEVEL = 'DEBUG' if DEBUG else 'INFO'
+GNOTTY_HTTP_HOST = '127.0.0.1' if DEBUG else '0.0.0.0'
 
 ####################
 # DYNAMIC SETTINGS #
@@ -372,3 +382,4 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
