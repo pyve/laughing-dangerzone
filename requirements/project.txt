@@ -1,5 +1,5 @@
 Django==5.2.16
-Mezzanine==1.4.3
+Mezzanine==6.1.1
 Gnotty==0.2.4
 mezzanine-careers==0.1
 mezzanine-polls==0.3.2
