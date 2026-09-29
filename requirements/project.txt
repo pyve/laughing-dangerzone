@@ -1,4 +1,4 @@
-Django==1.11.23
+Django==5.2.16
 Mezzanine==1.4.3
 Gnotty==0.2.4
 mezzanine-careers==0.1
